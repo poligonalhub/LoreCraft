@@ -4,7 +4,7 @@ import react from '@vitejs/plugin-react';
 export default defineConfig({
   plugins: [react()],
   clearScreen: false,
-  server: { port: 1420, strictPort: true, host: '0.0.0.0', cors: true },
+  server: { port: 1420, strictPort: true, host: '::', cors: true },
   build: {
     target: 'es2022',
     // Otherwise CSS is rewritten for older browsers, and right-to-left rules such as `:dir()`

@@ -242,6 +242,18 @@ export function AppShell() {
         <header className="topbar">
           <MenuBar />
           <NavButtons />
+          <button
+            type="button"
+            className="btn nav-arrow"
+            title={t('Página Principal da Wiki (Home)')}
+            aria-label={t('Home')}
+            onClick={() => go({ view: 'home' })}
+            style={{ marginLeft: '2px', marginRight: '6px' }}
+          >
+            <svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor" aria-hidden="true">
+              <path d="M8 1.5l-6.5 5.5v7.5h4.5v-4.5h4v4.5h4.5v-7.5z" />
+            </svg>
+          </button>
           <nav className="area-tabs" aria-label={t('Sections')}>
             {TABS.map((tab) => (
               <button

@@ -2,10 +2,11 @@
 
 import type { CustomStyle } from '../writingStyles/types';
 
-export type ThemeId = 'encyclopedia' | 'parchment' | 'typewriter' | 'midnight' | 'lorekeeper' | 'contrast';
+export type ThemeId = 'poligonal' | 'encyclopedia' | 'parchment' | 'typewriter' | 'midnight' | 'lorekeeper' | 'contrast';
 export type ThemeMode = 'dark' | 'light';
 
 export const THEMES: { id: ThemeId; name: string; description: string }[] = [
+  { id: 'poligonal', name: 'Poligonal Dark', description: 'Obsidian dark com reflexos iridescentes cromaticos da Poligonal' },
   { id: 'encyclopedia', name: 'Encyclopedia', description: 'Clean reference-book styling, the default' },
   { id: 'parchment', name: 'Parchment', description: 'Warm paper and old-style serif type' },
   { id: 'typewriter', name: 'Typewriter', description: 'Stark contrast and monospaced type' },
@@ -231,7 +232,7 @@ export interface Settings {
 export const LOCAL_PROFILE_ID = 'local';
 
 export const DEFAULT_SETTINGS: Settings = {
-  appearance: { theme: 'encyclopedia', mode: 'dark', uiScale: 1, contentScale: 1 },
+  appearance: { theme: 'poligonal', mode: 'dark', uiScale: 1, contentScale: 1 },
   editor: {
     spellcheck: true,
     typewriterScroll: false,

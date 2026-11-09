@@ -15,6 +15,83 @@
   --font-mono: 'Cascadia Mono', Consolas, 'Courier New', monospace;
 }
 
+
+/* ---- Poligonal ------------------------------------------------------------ */
+:root[data-theme='poligonal'] {
+  --font-ui: 'Inter', 'Segoe UI', system-ui, sans-serif;
+  --font-heading: 'Inter', 'Segoe UI', system-ui, sans-serif;
+  --font-body: 'Inter', 'Segoe UI', system-ui, sans-serif;
+  --font-prose: 'Source Serif 4', Georgia, serif;
+  --font-mono: 'Cascadia Mono', Consolas, 'Courier New', monospace;
+}
+:root[data-theme='poligonal'][data-mode='dark'] {
+  --bg: #060709;
+  --bg-sunken: #040406;
+  --surface: #0c0d12;
+  --surface-2: #13141c;
+  --surface-3: #1a1c26;
+  --border: #232533;
+  --border-strong: #383c50;
+  --text: #ffffff;
+  --text-muted: #8e95a5;
+  --text-faint: #565d6d;
+  --link: #00f0ff;
+  --link-hover: #00ff9f;
+  --link-red: #ff007f;
+  --accent: #00f0ff;
+  --accent-hover: #38bdf8;
+  --accent-text: #060709;
+  --danger: #ff007f;
+  --success: #00ff9f;
+  --warning: #ffaa00;
+  --ins-bg: #08291f;
+  --ins-text: #00ff9f;
+  --del-bg: #3d071a;
+  --del-text: #ff007f;
+  --selection: #7928ca;
+  --shadow: 0 8px 32px rgb(0 0 0 / 85%);
+  --infobox-bg: #0c0d12;
+  --color-scheme: dark;
+}
+:root[data-theme='poligonal'][data-mode='light'] {
+  --bg: #f5f6fa;
+  --bg-sunken: #eceef5;
+  --surface: #ffffff;
+  --surface-2: #e8ebf5;
+  --surface-3: #d9def0;
+  --border: #c4cbe0;
+  --border-strong: #8c97b8;
+  --text: #060709;
+  --text-muted: #4e5568;
+  --text-faint: #6e768e;
+  --link: #0077b6;
+  --link-hover: #005a8c;
+  --link-red: #d6006c;
+  --accent: #0077b6;
+  --accent-hover: #005a8c;
+  --accent-text: #ffffff;
+  --danger: #d6006c;
+  --success: #00875a;
+  --warning: #b36b00;
+  --ins-bg: #d0f5e5;
+  --ins-text: #006644;
+  --del-bg: #fde2ec;
+  --del-text: #9e004a;
+  --selection: #c7d2fe;
+  --shadow: 0 8px 28px rgb(6 7 9 / 18%);
+  --infobox-bg: #f0f2f8;
+  --color-scheme: light;
+}
+
+:root[data-theme='poligonal'] {
+  --brand-iridescent: linear-gradient(135deg, #00f0ff 0%, #7928ca 35%, #ff007f 65%, #ffaa00 100%);
+  --brand-glow: 0 0 15px rgba(0, 240, 255, 0.25);
+}
+:root[data-theme='poligonal'] ::selection {
+  background: rgba(121, 40, 202, 0.6);
+  color: #00f0ff;
+}
+
 /* ---- Encyclopedia --------------------------------------------------------- */
 :root[data-theme='encyclopedia'][data-mode='dark'] {
   --bg: #101418;

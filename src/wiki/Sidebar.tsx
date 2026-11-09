@@ -14,6 +14,7 @@ import { useProject, useTitles } from '../state/project';
 import { t } from '../lib/i18n';
 import { refDragProps } from '../canvas/refDrag';
 import type { LoreRef } from '../canvas/model';
+import { closeProject } from '../shell/fileActions';
 
 function NavLink(props: { route: Route; children: ReactNode; active?: boolean; count?: number; dragRef?: LoreRef }) {
   const current = useNav((s) => s.route);
@@ -60,7 +61,18 @@ export function WikiSidebar() {
 
   return (
     <>
-      <div className="nav-title">{name}</div>
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0 0.5rem', marginBottom: '0.75rem' }}>
+        <div className="nav-title" style={{ padding: 0, margin: 0, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{name}</div>
+        <button
+          type="button"
+          className="btn btn-ghost btn-sm"
+          title={t('Fechar projeto e voltar à tela inicial')}
+          onClick={() => void closeProject()}
+          style={{ fontSize: '0.75rem', padding: '0.15rem 0.45rem', cursor: 'pointer', flexShrink: 0 }}
+        >
+          {t('Início')}
+        </button>
+      </div>
       <nav className="nav-section" aria-label={t('Wiki')}>
         <NavLink route={{ view: 'home' }} dragRef={homeId ? { kind: 'page', id: homeId } : undefined}>{t('Main page')}</NavLink>
         <NavLink route={{ view: 'allPages' }}>{t('All pages')}</NavLink>

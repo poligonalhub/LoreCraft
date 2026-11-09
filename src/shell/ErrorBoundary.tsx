@@ -3,6 +3,8 @@ import { Component, type ErrorInfo, type ReactNode } from 'react';
 import { reportError } from '../support/errorReporting';
 import { t } from '../lib/i18n';
 import { useLocale } from '../state/language';
+import { useNav } from '../state/nav';
+import { closeProject } from './fileActions';
 
 function ErrorNotice({ message, onRetry }: { message: string; onRetry: () => void }) {
   useLocale();
@@ -11,9 +13,30 @@ function ErrorNotice({ message, onRetry }: { message: string; onRetry: () => voi
       <h1 className="view-title">{t('This screen hit a problem')}</h1>
       <p>{t('Your work is safe. Every saved edit is already in the recovery copy.')}</p>
       <pre className="error-detail">{message}</pre>
-      <button type="button" className="btn btn-primary" onClick={onRetry}>
-        {t('Try again')}
-      </button>
+      <div style={{ display: 'flex', gap: '0.75rem', marginTop: '1rem', flexWrap: 'wrap' }}>
+        <button type="button" className="btn btn-primary" onClick={onRetry}>
+          {t('Try again')}
+        </button>
+        <button
+          type="button"
+          className="btn"
+          onClick={() => {
+            onRetry();
+            useNav.getState().go({ view: 'home' });
+          }}
+        >
+          {t('Página Principal')}
+        </button>
+        <button
+          type="button"
+          className="btn btn-secondary"
+          onClick={() => {
+            void closeProject();
+          }}
+        >
+          {t('Fechar Projeto')}
+        </button>
+      </div>
     </div>
   );
 }

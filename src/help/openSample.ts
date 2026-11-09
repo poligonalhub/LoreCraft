@@ -33,7 +33,7 @@ async function open(): Promise<void> {
 
     await api.project.create(SAMPLE_WORLD_NAME);
     const report = await importing.apply(payload);
-    await afterProjectChanged();
+    await afterProjectChanged({ restore: false });
     const refused = report.problems.find((p) => p.severity === 'error');
     if (refused) throw new Error(`${refused.item}, ${refused.field}: ${refused.message}`);
     toast(t('Opened the sample world as a new project. Explore or change anything, and your own projects stay as they are.'), 'success');

@@ -40,7 +40,7 @@ export function useProposalCount(): number {
     let alive = true;
     void mcp.proposalCount().then(
       (n) => {
-        if (alive) setCount(n);
+        if (alive && typeof n === 'number') setCount(n);
       },
       () => {},
     );
@@ -294,7 +294,7 @@ function AppliedList() {
     let alive = true;
     void mcp.proposals('applied').then(
       (list) => {
-        if (alive) setApplied(list);
+        if (alive && Array.isArray(list)) setApplied(list);
       },
       () => {},
     );
@@ -302,7 +302,7 @@ function AppliedList() {
       alive = false;
     };
   }, [version]);
-  if (applied.length === 0) return null;
+  if (!Array.isArray(applied) || applied.length === 0) return null;
   return (
     <section className="mcp-applied" aria-labelledby="mcp-applied-heading">
       <h2 id="mcp-applied-heading" className="mcp-applied-title">
@@ -435,7 +435,7 @@ export function ProposalsView() {
     let alive = true;
     void mcp.proposals().then(
       (list) => {
-        if (alive) setProposals(list);
+        if (alive && Array.isArray(list)) setProposals(list);
       },
       (e) => {
         if (alive) setError(errorMessage(e));
