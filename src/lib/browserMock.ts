@@ -861,7 +861,7 @@ export function handleBrowserRpc(method: string, params: any): any {
 }
 
 // Auto-initialize when running in browser without native Tauri
-if (typeof window !== 'undefined' && !(window as any).__TAURI_INTERNALS__) {
+if (typeof window !== 'undefined' && (!(window as any).__TAURI_INTERNALS__ || !(window as any).__TAURI_INTERNALS__.invoke)) {
   console.info('[LoreCraft] Native Tauri runtime not detected. Initializing Browser Sandbox Mock...');
   mockIPC(
     (cmd, args) => {
